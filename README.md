@@ -1,7 +1,8 @@
 # Homepage Custom CSS
 
 Custom styling for [Homepage](https://gethomepage.dev), a self-hosted dashboard. Glass-style cards, a compact 4-column Infrastructure row, and paired cards in Monitoring and Network.
-  ![Dashboard on phone](screenshots/phone.png)
+  ![Dashboard](screenshots/screenshots.jpg)
+  
 ## How to use
 
 1. Copy the contents of `homepage-custom-css-public.txt`.
