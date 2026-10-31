@@ -1,0 +1,535 @@
+/* ===== Layout: paired cards ===== */
+
+/* Tailscale + WireGuard: 2 across, AdGuard Home full width above them */
+.services-list:has(li[data-name="Tailscale"]):has(li[data-name="WireGuard"]) {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 8px !important;
+}
+
+.services-list:has(li[data-name="Tailscale"]):has(li[data-name="WireGuard"])
+li[data-name="Tailscale"],
+.services-list:has(li[data-name="Tailscale"]):has(li[data-name="WireGuard"])
+li[data-name="WireGuard"] {
+  min-width: 0 !important;
+}
+
+.services-list:has(li[data-name="Tailscale"]):has(li[data-name="WireGuard"])
+li[data-name="AdGuard Home"] {
+  grid-column: 1 / -1 !important;
+}
+
+/* Uptime Kuma + Beszel: half and half, same height, other cards full width */
+.services-list:has(li[data-name="Uptime Kuma"]):has(li[data-name="Beszel"]) {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 8px !important;
+}
+
+.services-list:has(li[data-name="Uptime Kuma"]):has(li[data-name="Beszel"])
+li[data-name]:not([data-name="Uptime Kuma"]):not([data-name="Beszel"]) {
+  grid-column: 1 / -1 !important;
+}
+
+.services-list:has(li[data-name="Uptime Kuma"]):has(li[data-name="Beszel"])
+li[data-name="Uptime Kuma"] .service-card,
+.services-list:has(li[data-name="Uptime Kuma"]):has(li[data-name="Beszel"])
+li[data-name="Beszel"] .service-card {
+  height: 100% !important;
+}
+
+/* Run Backup: remove extra vertical space */
+li[data-name="Run Backup"] .service-widget,
+li[data-name="Run Backup"] .service-block {
+  margin-top: 0 !important;
+}
+
+li[data-name="Run Backup"] .service-block {
+  margin-bottom: 0 !important;
+}
+
+/* ===== Downloads & Media: Navidrome full width, three compact cards below ===== */
+
+.services-group:has(li[data-name="Navidrome"]) .services-list {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 8px !important;
+}
+
+.services-group:has(li[data-name="Navidrome"]) li[data-name="Navidrome"] {
+  grid-column: 1 / -1 !important;
+}
+
+.services-group:has(li[data-name="Navidrome"])
+li:is([data-name="Audiobookshelf"], [data-name="MusicGrabber"], [data-name="AriaNg"]) .service-card {
+  height: 60px !important;
+  min-height: 60px !important;
+  padding: 6px 8px !important;
+  overflow: hidden !important;
+  align-items: center !important;
+}
+
+.services-group:has(li[data-name="Navidrome"])
+li:is([data-name="Audiobookshelf"], [data-name="MusicGrabber"], [data-name="AriaNg"]) .service-icon {
+  width: 21px !important;
+  height: 21px !important;
+  flex: 0 0 21px !important;
+}
+
+.services-group:has(li[data-name="Navidrome"])
+li:is([data-name="Audiobookshelf"], [data-name="MusicGrabber"], [data-name="AriaNg"]) .service-title {
+  min-width: 0 !important;
+  overflow: hidden !important;
+  padding-right: 16px !important;
+}
+
+.services-group:has(li[data-name="Navidrome"])
+li:is([data-name="Audiobookshelf"], [data-name="MusicGrabber"], [data-name="AriaNg"]) .service-name,
+.services-group:has(li[data-name="Navidrome"])
+li:is([data-name="Audiobookshelf"], [data-name="MusicGrabber"], [data-name="AriaNg"]) .service-description {
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  line-height: 1.1 !important;
+}
+
+.services-group:has(li[data-name="Navidrome"])
+li:is([data-name="Audiobookshelf"], [data-name="MusicGrabber"], [data-name="AriaNg"]) .service-name {
+  font-size: 0.73rem !important;
+}
+
+.services-group:has(li[data-name="Navidrome"])
+li:is([data-name="Audiobookshelf"], [data-name="MusicGrabber"], [data-name="AriaNg"]) .service-description {
+  font-size: 0.54rem !important;
+}
+
+/* Status dot in the top-right corner of the compact cards that have one */
+.services-group:has(li[data-name="Navidrome"])
+li:is([data-name="Audiobookshelf"], [data-name="MusicGrabber"]) .rounded-full.h-3.w-3.bg-emerald-500 {
+  position: absolute !important;
+  top: 6px !important;
+  right: 8px !important;
+  left: auto !important;
+  width: 8px !important;
+  height: 8px !important;
+  margin: 0 !important;
+  transform: none !important;
+}
+
+/* ===== Infrastructure: 4 compact cards per row ===== */
+
+.services-group:has(li[data-name="FileBrowser"]) .services-list {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 8px !important;
+}
+
+.services-group:has(li[data-name="FileBrowser"]) .service-card {
+  height: 60px !important;
+  min-height: 60px !important;
+  padding: 6px 8px !important;
+  box-shadow:
+    0 5px 18px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.075);
+}
+
+.services-group:has(li[data-name="FileBrowser"]) .service-icon {
+  width: 21px !important;
+  height: 21px !important;
+  flex: 0 0 21px !important;
+}
+
+.services-group:has(li[data-name="FileBrowser"]) .service-title {
+  min-width: 0 !important;
+  overflow: hidden !important;
+  padding-right: 16px !important;
+}
+
+.services-group:has(li[data-name="FileBrowser"]) .service-name,
+.services-group:has(li[data-name="FileBrowser"]) .service-description {
+  line-height: 1.1 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+.services-group:has(li[data-name="FileBrowser"]) .service-name {
+  font-size: 0.73rem !important;
+}
+
+.services-group:has(li[data-name="FileBrowser"]) .service-description {
+  font-size: 0.54rem !important;
+}
+
+.services-group:has(li[data-name="FileBrowser"]) .service-status {
+  position: static !important;
+}
+
+.services-group:has(li[data-name="FileBrowser"]) li.service
+.rounded-full.h-3.w-3.bg-emerald-500 {
+  position: absolute !important;
+  top: 8px !important;
+  right: 8px !important;
+  left: auto !important;
+  width: 8px !important;
+  height: 8px !important;
+  min-width: 8px !important;
+  min-height: 8px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  transform: none !important;
+}
+
+/* ===== Background ===== */
+
+body {
+  background:
+    radial-gradient(ellipse at 50% -20%, rgba(255, 255, 255, 0.055), transparent 48%),
+    radial-gradient(ellipse at 0% 55%, rgba(255, 255, 255, 0.018), transparent 42%),
+    radial-gradient(ellipse at 100% 75%, rgba(255, 255, 255, 0.015), transparent 42%),
+    #090a0c !important;
+  background-attachment: fixed !important;
+}
+
+#__next {
+  background: transparent !important;
+}
+
+/* ===== Header ===== */
+
+#information-widgets {
+  position: relative;
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.45rem !important;
+  padding-top: 0.35rem !important;
+  padding-bottom: 0.35rem !important;
+  padding-right: 14px !important;
+  background: linear-gradient(145deg, rgba(40, 46, 60, 0.68), rgba(14, 18, 28, 0.60)) !important;
+  border: 1px solid rgba(255, 255, 255, 0.11) !important;
+  border-radius: 24px !important;
+  backdrop-filter: blur(28px) saturate(165%);
+  -webkit-backdrop-filter: blur(28px) saturate(165%);
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.10),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.18);
+  overflow: visible !important;
+}
+
+#information-widgets::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none !important;
+  z-index: 0 !important;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.055), transparent 35%);
+  opacity: 0.8;
+}
+
+#information-widgets > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Title: change the text inside content: "..." to your own */
+#information-widgets::before {
+  content: "Home Server";
+  display: block;
+  width: 100%;
+  flex-basis: 100%;
+  text-align: center;
+  font-size: 1.45rem !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.025em !important;
+  line-height: 1.2;
+  margin: 0 0 7px 0 !important;
+  color: rgb(var(--color-100));
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+}
+
+#information-widgets h1 {
+  font-size: 2.2rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+#information-widgets time {
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
+}
+
+#information-widgets .text-sm {
+  margin-top: 5px !important;
+}
+
+/* Resource widgets (CPU / RAM / Storage) */
+#widgets-wrap {
+  gap: 0.15rem 0.7rem !important;
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+  padding-left: 10px !important;
+}
+
+#information-widgets #widgets-wrap {
+  background: transparent !important;
+}
+
+/* Header search */
+#information-widgets input {
+  background: rgba(255, 255, 255, 0.045) !important;
+  border: 1px solid rgba(255, 255, 255, 0.075) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04) !important;
+  min-height: 38px !important;
+  height: 38px !important;
+  font-weight: 400 !important;
+  letter-spacing: 0 !important;
+}
+
+/* ===== Bookmarks ===== */
+
+#bookmarks {
+  display: block !important;
+}
+
+#bookmarks > div {
+  min-width: 0 !important;
+}
+
+#bookmarks .bookmark-list {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 8px !important;
+}
+
+#bookmarks .bookmark-list .bookmark {
+  min-width: 0 !important;
+}
+
+#bookmarks .bookmark-list .bookmark a {
+  margin-bottom: 0 !important;
+}
+
+#bookmarks .bookmark-icon {
+  display: none !important;
+}
+
+#bookmarks .bookmark-name {
+  padding-left: 12px !important;
+}
+
+#bookmarks .bookmark-text {
+  background: linear-gradient(145deg, rgba(40, 44, 56, 0.60), rgba(17, 20, 29, 0.52)) !important;
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.085);
+  border-radius: 0.375rem !important;
+  box-shadow:
+    0 6px 20px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.065);
+  transition: transform 0.18s ease, background 0.18s ease;
+}
+
+#bookmarks .bookmark-text:hover {
+  background: rgba(48, 53, 67, 0.68) !important;
+  transform: translateY(-1px);
+}
+
+/* ===== Service cards ===== */
+
+.service-card {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(145deg, rgba(45, 50, 64, 0.68), rgba(15, 19, 29, 0.58)) !important;
+  backdrop-filter: blur(24px) saturate(155%);
+  -webkit-backdrop-filter: blur(24px) saturate(155%);
+  border: 1px solid rgba(255, 255, 255, 0.11) !important;
+  border-radius: 16px !important;
+  box-shadow:
+    0 8px 26px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.085),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.20);
+  transition: transform 0.20s ease, background 0.20s ease, box-shadow 0.20s ease !important;
+}
+
+.service-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.045), transparent 38%);
+}
+
+.service-card:hover {
+  background: linear-gradient(145deg, rgba(50, 55, 70, 0.70), rgba(20, 23, 33, 0.62)) !important;
+  transform: translateY(-2px);
+  box-shadow:
+    0 15px 36px rgba(0, 0, 0, 0.30),
+    inset 0 1px 0 rgba(255, 255, 255, 0.11);
+}
+
+.service-name {
+  color: rgba(255, 255, 255, 0.96) !important;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.20);
+  font-weight: 500 !important;
+  letter-spacing: -0.01em !important;
+}
+
+.service-description {
+  color: rgba(220, 225, 235, 0.55) !important;
+  font-weight: 400 !important;
+  opacity: 0.72;
+}
+
+.service-icon {
+  filter: drop-shadow(0 3px 7px rgba(0, 0, 0, 0.30));
+}
+
+.service-widget {
+  font-weight: 400;
+}
+
+.service-status .rounded-full {
+  box-shadow: 0 0 7px rgba(255, 255, 255, 0.22);
+}
+
+.service-status .bg-emerald-500 {
+  box-shadow:
+    0 0 6px rgba(16, 185, 129, 0.65),
+    0 0 14px rgba(16, 185, 129, 0.28);
+}
+
+/* ===== Widgets ===== */
+
+.widget-container {
+  position: relative;
+  overflow: visible !important;
+  background: linear-gradient(145deg, rgba(43, 48, 62, 0.64), rgba(15, 19, 29, 0.56)) !important;
+  backdrop-filter: blur(24px) saturate(155%);
+  -webkit-backdrop-filter: blur(24px) saturate(155%);
+  border: 1px solid rgba(255, 255, 255, 0.105) !important;
+  border-radius: 18px !important;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+
+/* Header widgets are transparent (they sit on the header panel) */
+#information-widgets .widget-container {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Top-edge reflection on cards and widgets */
+.service-card::after,
+.widget-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 8%;
+  right: 8%;
+  height: 1px;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.10), transparent);
+}
+
+/* ===== Search ===== */
+
+input {
+  background: linear-gradient(145deg, rgba(42, 46, 58, 0.62), rgba(18, 21, 30, 0.58)) !important;
+  backdrop-filter: blur(22px) saturate(160%);
+  -webkit-backdrop-filter: blur(22px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.10) !important;
+  border-radius: 14px !important;
+  color: white !important;
+  box-shadow:
+    0 7px 22px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+
+input:focus {
+  border-color: rgba(120, 150, 255, 0.30) !important;
+  box-shadow:
+    0 0 0 3px rgba(100, 130, 255, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+/* ===== Typography ===== */
+
+body,
+button,
+input,
+textarea,
+select {
+  font-family:
+    Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif !important;
+}
+
+strong,
+.font-bold {
+  font-weight: 600 !important;
+}
+
+h2 {
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.30);
+}
+
+#services .services-group > h2 {
+  font-size: 1.35rem !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.015em !important;
+}
+
+/* ===== Scrollbar ===== */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.13);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+/* ===== Mobile (max-width: 640px) ===== */
+
+@media (max-width: 640px) {
+  body {
+    background:
+      radial-gradient(ellipse at 50% -15%, rgba(255, 255, 255, 0.06), transparent 45%),
+      #090a0c !important;
+  }
+
+  .service-card {
+    border-radius: 14px !important;
+  }
+
+  .service-card:hover {
+    transform: none;
+  }
+
+  #bookmarks .bookmark-text {
+    border-radius: 10px !important;
+  }
+}
+
+/* ===== Reduced motion ===== */
+
+@media (prefers-reduced-motion: reduce) {
+  .service-card,
+  #bookmarks .bookmark-text {
+    transition: none !important;
+  }
+}
