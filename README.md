@@ -1,7 +1,7 @@
 # Homepage Custom CSS
 
 Custom styling for [Homepage](https://gethomepage.dev), a self-hosted dashboard. Glass-style cards, a compact 4-column Infrastructure row, and paired cards in Monitoring and Network.
-  ![Dashboard](screenshots/screenshots.jpg)
+  ![Dashboard](/screenshots.jpg)
   
 ## How to use
 
