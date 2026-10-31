@@ -23,7 +23,7 @@ If your names differ, change the matching names in the CSS, or the layout won't 
 ## Notes
 
 - The title is set in the CSS. Change the text inside `content: "Home Server";` to your own.
-- Tested on Android Chrome. Other browsers may look slightly different.
+- Tested on Android Chrome, Brave, Vivaldi Browser. Other browsers may look slightly different. Set Zoom around 90% in browser for better fit
 - Blur effects are heavy on phones. Reduce `backdrop-filter` values if the page feels slow.
 
 ## Not included
